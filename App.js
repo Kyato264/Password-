@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { StatusBar, StyleSheet, Text, View, TextInput, TouchableOpacity, Keyboard } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import TestScreen from './TestScreen';
-
+import PasswordsMain from './PasswordsMain';
+import PasswordStorage from './PasswordStorage';
 const Stack = createNativeStackNavigator();
 
 export default function App() {
@@ -11,14 +11,14 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name="Login" component={Login} />
-        <Stack.Screen name="TestScreen" component={TestScreen} />
+        <Stack.Screen name="PasswordsMain" component={PasswordsMain} />
+        <Stack.Screen name="PasswordStorage" component={PasswordStorage}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
 }
 
 function Login({ navigation }) {
-  const [Email, setEmail] = useState('');
   const [Password, setPassword] = useState('');
   
   const dismissKeyboard = () => {
@@ -28,8 +28,8 @@ function Login({ navigation }) {
   const PasswordRevealCheck = true; 
 
   const LoginAttempt = () => {
-    if (Email === "whatever" && Password === "something") {
-      navigation.navigate('TestScreen');
+    if (Password === "something") {
+      navigation.navigate('PasswordsMain');
     }
   }
 
@@ -40,11 +40,7 @@ function Login({ navigation }) {
         <StatusBar style="auto" />
 
         <Text style={styles.plainText}>Email</Text>
-        <TextInput style={styles.loginInfo}
-          value={Email}
-          keyboardType="email-address"
-          onChangeText={(text) => setEmail(text)}
-        />
+
 
         <Text style={styles.plainText}>Password</Text>
         <TextInput style={styles.loginInfo}
@@ -56,7 +52,7 @@ function Login({ navigation }) {
         />
 
         <TouchableOpacity onPress={LoginAttempt} style={styles.button}>
-          <Text style={styles.buttonText}>Login</Text>
+          <Text style={styles.buttonText}>OK</Text>
         </TouchableOpacity>
 
       </View>
