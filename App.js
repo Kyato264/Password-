@@ -3,16 +3,22 @@ import { StatusBar, StyleSheet, Text, View, TextInput, TouchableOpacity, Keyboar
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import PasswordsMain from './PasswordsMain';
-import PasswordStorage from './PasswordStorage';
+import PasswordViewer from './PasswordViewer';
+import SetUserDetails from './SetUserDetails';
+import UpdUserDetails from './UpdUserDetails';
+import PasswordGen from './PasswordGen';
 const Stack = createNativeStackNavigator();
 
 export default function App() {
-  return (
+  return ( 
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="PasswordsMain" component={PasswordsMain} />
-        <Stack.Screen name="PasswordStorage" component={PasswordStorage}/>
+        <Stack.Screen name="PasswordViewer" component={PasswordViewer}/>
+        <Stack.Screen name="SetUserDetails" component={SetUserDetails}/>
+        <Stack.Screen name="UpdUserDetails" component={UpdUserDetails}/>
+        <Stack.Screen name="PasswordGen" component={PasswordGen}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
