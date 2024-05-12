@@ -9,13 +9,15 @@ import SetUserDetails from './SetUserDetails';
 import UpdUserDetails from './UpdUserDetails';
 import PasswordGen from './PasswordGen';
 import PasswordMake from './PasswordMake';
+import styles from './StyleSheet';
+
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator screenOptions={{headerShown: false}}>
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="PasswordsMain" component={PasswordsMain} />
         <Stack.Screen name="PasswordViewer" component={PasswordViewer} />
@@ -37,7 +39,7 @@ function Login({ navigation }) {
     checkUserDetails();
   }, []);
 
-  useFocusEffect( // Update username when the screen comes into focus
+  useFocusEffect( 
     React.useCallback(() => {
       checkUserDetails();
     }, [])
@@ -121,8 +123,8 @@ function Login({ navigation }) {
         <TouchableOpacity onPress={loginAttempt} style={styles.button}>
           <Text style={styles.buttonText}>OK</Text>
         </TouchableOpacity>
-      </View>
-      {!userDetailsExist && (
+
+        {!userDetailsExist && (
         <TouchableOpacity onPress={() => navigation.navigate('SetUserDetails')} style={styles.button}>
           <Text style={styles.buttonText}>Set User Details</Text>
         </TouchableOpacity>
@@ -131,49 +133,8 @@ function Login({ navigation }) {
       <TouchableOpacity onPress={resetUserDetails} style={styles.button}>
         <Text style={styles.buttonText}>Reset User Details </Text>
       </TouchableOpacity>
+      </View>
     </View>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: 20,
-  },
-  box: {
-    borderWidth: 1,
-    borderColor: 'grey',
-    padding: 20,
-    borderRadius: 10,
-  },
-  title: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    marginBottom: 20,
-  },
-  loginInfo: {
-    marginBottom: 10,
-    padding: 10,
-    borderColor: 'gray',
-    borderWidth: 1,
-    borderRadius: 10,
-  },
-  plainText: {
-    color: 'gray',
-    fontSize: 20,
-  },
-  button: {
-    backgroundColor: 'blue',
-    padding: 10,
-    marginBottom: 20,
-    alignItems: 'center',
-    borderRadius: 5,
-  },
-  buttonText: {
-    color: 'white',
-    fontSize: 18,
-  },
-});

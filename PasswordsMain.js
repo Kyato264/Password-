@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View, Button } from 'react-native';
-export default function App({ navigation }) {
+export default function PasswordsMain({ navigation }) {
 return (
 <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
 <Text>Test Screen</Text>

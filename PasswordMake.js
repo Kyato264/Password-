@@ -1,7 +1,7 @@
 import {
     StyleSheet, Text, View, SafeAreaView, Keyboard, TextInput, Button, } from "react-native";
     import React, { useState } from "react";
-    export default function index() {
+    export default function PasswordMake({navigation}) {
     const [Type, setType] = useState("");
     const [ShortName, setShortName] = useState("");
     const [Website, setWebsite] = useState("");
@@ -86,6 +86,7 @@ import {
     </View>
 
     <Button title="Submit" onPress={handleSubmit} />
+    <Button title="Menu" onPress={() => navigation.navigate('PasswordsMain')}/>
     </View>
     </SafeAreaView>
     );

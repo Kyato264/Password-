@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, Text, View, FlatList, SafeAreaView } from 'react-native';
+import { StyleSheet, Text, View, FlatList, SafeAreaView, Button } from 'react-native';
 
-export default function PasswordViewer() {
+
+export default function PasswordViewer({navigation}) {
     const [passwords, setPasswords] = useState([]);
 
     useEffect(() => {
@@ -42,6 +43,7 @@ export default function PasswordViewer() {
                     keyExtractor={(item, index) => index.toString()}
                 />
             </View>
+            <Button title="Menu" onPress={() => navigation.navigate('PasswordsMain')}/>
         </SafeAreaView>
     );
 }

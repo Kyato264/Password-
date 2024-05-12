@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
 
 
-export default function PasswordGenerator({ navigation }) {
+export default function PasswordGen({ navigation }) {
     const [password, setPassword] = useState('');
 
     const makeid = (length) => {
@@ -18,7 +18,7 @@ export default function PasswordGenerator({ navigation }) {
     }
 
     const handleGeneratePassword = () => {
-        const generatedPassword = makeid(8);
+        const generatedPassword = makeid(12);
         setPassword(generatedPassword);
     };
 
